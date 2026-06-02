@@ -23,15 +23,12 @@
   --amber-light: #fffbeb;
   --red: #dc2626;
   --red-light: #fef2f2;
-  --purple: #7c3aed;
-  --purple-light: #f5f3ff;
   --radius: 12px;
   --radius-sm: 8px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); min-height: 100vh; }
 
-/* Header */
 .header {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
@@ -52,12 +49,10 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 .badge-live { font-size: 11px; background: #dcfce7; color: #15803d; padding: 3px 8px; border-radius: 20px; font-weight: 500; }
 .header-right { font-size: 13px; color: var(--text3); }
 
-/* Layout */
 .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
 .page-title { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
 .page-sub { font-size: 14px; color: var(--text3); margin-bottom: 2rem; }
 
-/* Stat cards row */
 .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
 .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; }
 .stat-label { font-size: 12px; color: var(--text3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
@@ -68,16 +63,22 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 .stat-card.highlight .stat-value { color: #fff; }
 .stat-card.highlight .stat-sub { color: rgba(255,255,255,0.4); }
 
-/* Main grid */
 .main-grid { display: grid; grid-template-columns: 1fr 340px; gap: 1.25rem; margin-bottom: 1.25rem; }
 
-/* Panel */
 .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 .panel-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
 .panel-title { font-size: 14px; font-weight: 600; }
 .panel-body { padding: 1.25rem; }
 
-/* Input groups */
+/* Price inputs row */
+.price-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
+.price-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.price-card-title { font-size: 12px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.price-input-wrap { display: flex; align-items: center; gap: 8px; }
+.price-input-wrap input { flex: 1; padding: 8px 12px; font-size: 16px; font-weight: 600; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface2); color: var(--text); outline: none; transition: border-color 0.15s; }
+.price-input-wrap input:focus { border-color: var(--blue); background: #fff; }
+.price-input-wrap span { font-size: 13px; color: var(--text3); white-space: nowrap; }
+
 .input-section { margin-bottom: 1.25rem; }
 .input-section:last-child { margin-bottom: 0; }
 .section-label { font-size: 12px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
@@ -85,15 +86,12 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 .flag-dot.rus { background: #2563eb; }
 .flag-dot.uzb { background: #16a34a; }
 .input-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-.inp-group { }
 .inp-group label { font-size: 11px; color: var(--text3); display: block; margin-bottom: 4px; font-weight: 500; }
 .inp-group input { width: 100%; padding: 8px 10px; font-size: 14px; font-weight: 500; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface2); color: var(--text); outline: none; transition: border-color 0.15s; }
 .inp-group input:focus { border-color: var(--blue); background: #fff; }
-.inp-group input:disabled { background: var(--surface2); color: var(--text3); cursor: default; }
-.inp-group input.derived { border-style: dashed; }
+.inp-group input:disabled { background: var(--surface2); color: var(--text3); cursor: default; border-style: dashed; }
 .divider-thin { height: 1px; background: var(--border); margin: 1.1rem 0; }
 
-/* Breakdown table */
 .breakdown { width: 100%; border-collapse: collapse; font-size: 13px; }
 .breakdown thead th { font-size: 11px; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; padding: 0 0 8px; text-align: left; border-bottom: 1px solid var(--border); }
 .breakdown thead th:last-child { text-align: right; }
@@ -102,18 +100,13 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 .breakdown tbody td:last-child { text-align: right; font-weight: 600; }
 .tag { font-size: 11px; padding: 2px 7px; border-radius: 20px; font-weight: 500; display: inline-block; margin-left: 4px; }
 .tag.blue { background: var(--blue-light); color: var(--blue); }
-.tag.green { background: var(--green-light); color: var(--green); }
 .tag.amber { background: var(--amber-light); color: var(--amber); }
 .tag.gray { background: var(--surface2); color: var(--text3); border: 1px solid var(--border); }
 .row-label { display: flex; align-items: center; gap: 6px; }
 
-/* Chart area */
 .chart-wrap { position: relative; height: 200px; }
-
-/* Error */
 .err-box { background: var(--red-light); border: 1px solid rgba(220,38,38,0.2); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--red); margin-top: 8px; display: none; }
 
-/* Avg check big card */
 .avg-hero { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; color: #fff; }
 .avg-hero-label { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
 .avg-hero-value { font-size: 36px; font-weight: 800; letter-spacing: -1px; color: #fff; }
@@ -123,12 +116,12 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 .avg-mini-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
 .avg-mini-value { font-size: 18px; font-weight: 700; color: #fff; }
 
-/* Footer */
 .footer { text-align: center; font-size: 12px; color: var(--text3); padding: 1.5rem 0; border-top: 1px solid var(--border); margin-top: 1.5rem; }
 
 @media (max-width: 800px) {
   .stat-row { grid-template-columns: 1fr 1fr; }
   .main-grid { grid-template-columns: 1fr; }
+  .price-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -147,7 +140,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 
 <div class="container">
   <div class="page-title">To'lov tahlili</div>
-  <div class="page-sub">O'quvchilar soni va to'lov turini o'zgartiring — barcha ko'rsatkichlar avtomatik yangilanadi</div>
+  <div class="page-sub">Narxlar, o'quvchilar soni va to'lov turini o'zgartiring — barcha ko'rsatkichlar avtomatik yangilanadi</div>
 
   <!-- Stat row -->
   <div class="stat-row">
@@ -159,7 +152,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
     <div class="stat-card">
       <div class="stat-label">Jami oylik tushum</div>
       <div class="stat-value" id="s-total">—</div>
-      <div class="stat-sub" id="s-total-sub">hisob-kitob amalga oshirilmoqda</div>
+      <div class="stat-sub" id="s-total-sub">hisob-kitob...</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Yillik prognoz</div>
@@ -173,12 +166,27 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
     </div>
   </div>
 
-  <div class="main-grid">
+  <!-- Price inputs -->
+  <div class="price-row">
+    <div class="price-card">
+      <div class="price-card-title"><span class="flag-dot rus"></span>Rus o'quvchi — oylik narx</div>
+      <div class="price-input-wrap">
+        <input type="number" id="rus-price" value="3450000" min="0" step="50000" oninput="calc()">
+        <span>so'm / oy</span>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-card-title"><span class="flag-dot uzb"></span>O'zbek o'quvchi — oylik narx</div>
+      <div class="price-input-wrap">
+        <input type="number" id="uzb-price" value="2950000" min="0" step="50000" oninput="calc()">
+        <span>so'm / oy</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Left: inputs + breakdown -->
+  <div class="main-grid">
     <div style="display:flex; flex-direction:column; gap:1.25rem;">
 
-      <!-- Inputs panel -->
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">O'quvchilar sozlamalari</span>
@@ -187,7 +195,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
         <div class="panel-body">
 
           <div class="input-section">
-            <div class="section-label"><span class="flag-dot rus"></span>Rus o'quvchilar — max 572 ta &nbsp;·&nbsp; 3 450 000 so'm/oy</div>
+            <div class="section-label"><span class="flag-dot rus"></span>Rus o'quvchilar — max 572 ta</div>
             <div class="input-row">
               <div class="inp-group">
                 <label>Birdan (–15%)</label>
@@ -199,7 +207,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
               </div>
               <div class="inp-group">
                 <label>Chegirmasiz</label>
-                <input type="number" id="r-free" disabled class="derived">
+                <input type="number" id="r-free" disabled>
               </div>
             </div>
             <div class="err-box" id="r-err">⚠ Kiritilgan son 572 dan oshib ketdi!</div>
@@ -208,7 +216,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
           <div class="divider-thin"></div>
 
           <div class="input-section">
-            <div class="section-label"><span class="flag-dot uzb"></span>O'zbek o'quvchilar — max 652 ta &nbsp;·&nbsp; 2 950 000 so'm/oy</div>
+            <div class="section-label"><span class="flag-dot uzb"></span>O'zbek o'quvchilar — max 652 ta</div>
             <div class="input-row">
               <div class="inp-group">
                 <label>Birdan (–15%)</label>
@@ -220,7 +228,7 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
               </div>
               <div class="inp-group">
                 <label>Chegirmasiz</label>
-                <input type="number" id="u-free" disabled class="derived">
+                <input type="number" id="u-free" disabled>
               </div>
             </div>
             <div class="err-box" id="u-err">⚠ Kiritilgan son 652 dan oshib ketdi!</div>
@@ -229,11 +237,8 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
         </div>
       </div>
 
-      <!-- Breakdown table -->
       <div class="panel">
-        <div class="panel-header">
-          <span class="panel-title">Oylik tushum taqsimoti</span>
-        </div>
+        <div class="panel-header"><span class="panel-title">Oylik tushum taqsimoti</span></div>
         <div class="panel-body" style="padding-top:0.75rem;">
           <table class="breakdown">
             <thead>
@@ -248,37 +253,37 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
               <tr>
                 <td><div class="row-label"><span class="flag-dot rus"></span> Rus <span class="tag blue">–15%</span></div></td>
                 <td id="b-rf-count">—</td>
-                <td>2 932 500</td>
+                <td id="b-rf-price">—</td>
                 <td id="b-rf-rev">—</td>
               </tr>
               <tr>
                 <td><div class="row-label"><span class="flag-dot rus"></span> Rus <span class="tag amber">–10%</span></div></td>
                 <td id="b-rs-count">—</td>
-                <td>3 105 000</td>
+                <td id="b-rs-price">—</td>
                 <td id="b-rs-rev">—</td>
               </tr>
               <tr>
                 <td><div class="row-label"><span class="flag-dot rus"></span> Rus <span class="tag gray">to'liq</span></div></td>
                 <td id="b-rn-count">—</td>
-                <td>3 450 000</td>
+                <td id="b-rn-price">—</td>
                 <td id="b-rn-rev">—</td>
               </tr>
               <tr>
                 <td><div class="row-label"><span class="flag-dot uzb"></span> O'zbek <span class="tag blue">–15%</span></div></td>
                 <td id="b-uf-count">—</td>
-                <td>2 507 500</td>
+                <td id="b-uf-price">—</td>
                 <td id="b-uf-rev">—</td>
               </tr>
               <tr>
                 <td><div class="row-label"><span class="flag-dot uzb"></span> O'zbek <span class="tag amber">–10%</span></div></td>
                 <td id="b-us-count">—</td>
-                <td>2 655 000</td>
+                <td id="b-us-price">—</td>
                 <td id="b-us-rev">—</td>
               </tr>
               <tr>
                 <td><div class="row-label"><span class="flag-dot uzb"></span> O'zbek <span class="tag gray">to'liq</span></div></td>
                 <td id="b-un-count">—</td>
-                <td>2 950 000</td>
+                <td id="b-un-price">—</td>
                 <td id="b-un-rev">—</td>
               </tr>
               <tr style="background:var(--surface2);">
@@ -293,10 +298,8 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
 
     </div>
 
-    <!-- Right: avg check + chart -->
     <div style="display:flex; flex-direction:column; gap:1.25rem;">
 
-      <!-- Avg hero -->
       <div class="avg-hero">
         <div class="avg-hero-label">Средний чек (oylik)</div>
         <div class="avg-hero-value" id="avg-big">—</div>
@@ -313,7 +316,6 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
         </div>
       </div>
 
-      <!-- Discount mix -->
       <div class="panel">
         <div class="panel-header"><span class="panel-title">To'lov turi taqsimoti</span></div>
         <div class="panel-body">
@@ -324,7 +326,6 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
         </div>
       </div>
 
-      <!-- Loss from discounts -->
       <div class="panel">
         <div class="panel-header"><span class="panel-title">Chegirma yo'qotishi</span></div>
         <div class="panel-body" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
@@ -347,14 +348,12 @@ body { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'S
   </div>
 
   <div class="footer">
-    O'quv markazi revenue dashboard &nbsp;·&nbsp; Barcha sumlar so'mda &nbsp;·&nbsp; Oylik ko'rsatkichlar
+    O'quv markazi revenue dashboard · Barcha sumlar so'mda · Oylik ko'rsatkichlar
   </div>
 </div>
 
 <script>
 const RUS_MAX = 572, UZB_MAX = 652;
-const RUS_M = 3450000, UZB_M = 2950000;
-
 const fmt = n => Math.round(n).toLocaleString('ru-RU');
 const fmtM = n => {
   const m = n / 1000000;
@@ -364,6 +363,9 @@ const fmtM = n => {
 let donut = null;
 
 function calc() {
+  const RUS_M = parseInt(document.getElementById('rus-price').value) || 0;
+  const UZB_M = parseInt(document.getElementById('uzb-price').value) || 0;
+
   const rFull  = Math.max(0, parseInt(document.getElementById('r-full').value)  || 0);
   const rSplit = Math.max(0, parseInt(document.getElementById('r-split').value) || 0);
   const uFull  = Math.max(0, parseInt(document.getElementById('u-full').value)  || 0);
@@ -375,21 +377,22 @@ function calc() {
   document.getElementById('r-free').value = rFree >= 0 ? rFree : '—';
   document.getElementById('u-free').value = uFree >= 0 ? uFree : '—';
 
-  const rErr = document.getElementById('r-err');
-  const uErr = document.getElementById('u-err');
-  rErr.style.display = rFree < 0 ? 'block' : 'none';
-  uErr.style.display = uFree < 0 ? 'block' : 'none';
-
+  document.getElementById('r-err').style.display = rFree < 0 ? 'block' : 'none';
+  document.getElementById('u-err').style.display = uFree < 0 ? 'block' : 'none';
   if (rFree < 0 || uFree < 0) return;
 
-  // Revenue per group
-  const rRevFull  = rFull  * RUS_M * 0.85;
-  const rRevSplit = rSplit * RUS_M * 0.90;
+  const rPriceFull  = RUS_M * 0.85;
+  const rPriceSplit = RUS_M * 0.90;
+  const uPriceFull  = UZB_M * 0.85;
+  const uPriceSplit = UZB_M * 0.90;
+
+  const rRevFull  = rFull  * rPriceFull;
+  const rRevSplit = rSplit * rPriceSplit;
   const rRevFree  = rFree  * RUS_M;
   const rTot      = rRevFull + rRevSplit + rRevFree;
 
-  const uRevFull  = uFull  * UZB_M * 0.85;
-  const uRevSplit = uSplit * UZB_M * 0.90;
+  const uRevFull  = uFull  * uPriceFull;
+  const uRevSplit = uSplit * uPriceSplit;
   const uRevFree  = uFree  * UZB_M;
   const uTot      = uRevFull + uRevSplit + uRevFree;
 
@@ -398,42 +401,43 @@ function calc() {
   const avgRus = rTot / RUS_MAX;
   const avgUzb = uTot / UZB_MAX;
 
-  // Discount losses
   const lFull  = rFull * RUS_M * 0.15 + uFull  * UZB_M * 0.15;
   const lSplit = rSplit* RUS_M * 0.10 + uSplit * UZB_M * 0.10;
 
-  // Stat cards
-  document.getElementById('s-total').textContent    = fmtM(grand);
+  document.getElementById('s-total').textContent     = fmtM(grand);
   document.getElementById('s-total-sub').textContent = fmt(grand) + ' so\'m';
-  document.getElementById('s-annual').textContent   = fmtM(grand * 10);
-  document.getElementById('s-avg').textContent      = fmtM(avgAll);
+  document.getElementById('s-annual').textContent    = fmtM(grand * 10);
+  document.getElementById('s-avg').textContent       = fmtM(avgAll);
 
-  // Breakdown table
   document.getElementById('b-rf-count').textContent = rFull;
+  document.getElementById('b-rf-price').textContent = fmt(rPriceFull);
   document.getElementById('b-rf-rev').textContent   = fmt(rRevFull) + ' so\'m';
   document.getElementById('b-rs-count').textContent = rSplit;
+  document.getElementById('b-rs-price').textContent = fmt(rPriceSplit);
   document.getElementById('b-rs-rev').textContent   = fmt(rRevSplit) + ' so\'m';
   document.getElementById('b-rn-count').textContent = rFree;
+  document.getElementById('b-rn-price').textContent = fmt(RUS_M);
   document.getElementById('b-rn-rev').textContent   = fmt(rRevFree) + ' so\'m';
+
   document.getElementById('b-uf-count').textContent = uFull;
+  document.getElementById('b-uf-price').textContent = fmt(uPriceFull);
   document.getElementById('b-uf-rev').textContent   = fmt(uRevFull) + ' so\'m';
   document.getElementById('b-us-count').textContent = uSplit;
+  document.getElementById('b-us-price').textContent = fmt(uPriceSplit);
   document.getElementById('b-us-rev').textContent   = fmt(uRevSplit) + ' so\'m';
   document.getElementById('b-un-count').textContent = uFree;
+  document.getElementById('b-un-price').textContent = fmt(UZB_M);
   document.getElementById('b-un-rev').textContent   = fmt(uRevFree) + ' so\'m';
   document.getElementById('b-total').textContent    = fmt(grand) + ' so\'m';
 
-  // Avg hero
   document.getElementById('avg-big').textContent = fmt(avgAll) + ' so\'m';
   document.getElementById('avg-rus').textContent = fmt(avgRus) + ' so\'m';
   document.getElementById('avg-uzb').textContent = fmt(avgUzb) + ' so\'m';
 
-  // Losses
   document.getElementById('loss-full').textContent  = fmt(lFull)  + ' so\'m';
   document.getElementById('loss-split').textContent = fmt(lSplit) + ' so\'m';
   document.getElementById('loss-total').textContent = fmt(lFull + lSplit) + ' so\'m';
 
-  // Donut chart
   const allFull  = rFull  + uFull;
   const allSplit = rSplit + uSplit;
   const allFree  = rFree  + uFree;
@@ -448,25 +452,17 @@ function calc() {
     const ctx = document.getElementById('donut-chart').getContext('2d');
     donut = new Chart(ctx, {
       type: 'doughnut',
-      data: {
-        labels,
-        datasets: [{ data, backgroundColor: colors, borderWidth: 0, hoverOffset: 4 }]
-      },
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderWidth: 0, hoverOffset: 4 }] },
       options: {
         cutout: '68%',
         plugins: {
           legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: ctx => ' ' + ctx.label + ': ' + ctx.raw + ' ta'
-            }
-          }
+          tooltip: { callbacks: { label: ctx => ' ' + ctx.label + ': ' + ctx.raw + ' ta' } }
         }
       }
     });
   }
 
-  // Custom legend
   const leg = document.getElementById('legend');
   leg.innerHTML = labels.map((l,i) => `
     <div style="display:flex;align-items:center;justify-content:space-between;">
@@ -478,7 +474,6 @@ function calc() {
     </div>
   `).join('');
 
-  // Timestamp
   const now = new Date();
   document.getElementById('last-updated').textContent =
     'Yangilandi: ' + now.toLocaleTimeString('uz-UZ', {hour:'2-digit',minute:'2-digit'});
